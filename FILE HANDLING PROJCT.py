@@ -20,6 +20,7 @@ def removeemployee():
     file = open('emp.bin','rb')
     file2 = open('temp.bin','ab')
     emp_id = input("\n\tEnter Emp_Id To Remove Employee:")
+    flag = 0
     try:
         while True:
             data = pickle.load(file)
@@ -28,16 +29,20 @@ def removeemployee():
                 pickle.load(file)
                 pickle.load(file)
                 pickle.load(file)
-                pass
+                flag = 1
             else:
                 pickle.dump(data,file2)
     except:
          pass
-        
     file.close()
     file2.close()
     os.remove('emp.bin')
     os.rename('temp.bin','emp.bin')
+    if flag==1:
+        print("\n\tREMOVED SUCCESSFULLY!")
+    else:
+        print("\n\tEMPLOYEE NOT FOUND!")
+    print("\tPRESS ENTER TO CONTINUE!")
     
 #METHOD TO VIEW ALL EMPLOYEES
 def viewallemployees():
