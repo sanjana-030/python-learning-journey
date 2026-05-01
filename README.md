@@ -1,1 +1,1 @@
-# Python.
+# 🎯python-learning-journey
